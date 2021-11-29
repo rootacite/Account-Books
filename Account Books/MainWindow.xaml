@@ -6,27 +6,108 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Account_Books"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="900" Width="1600 " Background="#FFF8F8E0">
     <Window.Resources>
-
-        <Style TargetType="{x:Type TextBlock}" x:Key="VerticalExpanderContentTextBlock" BasedOn="{StaticResource MaterialDesignCaptionTextBlock}">
-            <Setter Property="MaxWidth" Value="180"/>
-        </Style>
-
-        <Style TargetType="{x:Type Border}" x:Key="HorizontalDividerBorder">
-            <Setter Property="Background" Value="{DynamicResource MaterialDesignDivider}"/>
-            <Setter Property="UseLayoutRounding" Value="True"/>
-            <Setter Property="HorizontalAlignment" Value="Stretch"/>
-            <Setter Property="Height" Value="1"/>
-        </Style>
-
-        <Style TargetType="{x:Type Border}" x:Key="VerticalDividerBorder" BasedOn="{StaticResource HorizontalDividerBorder}">
-            <Setter Property="VerticalAlignment" Value="Stretch"/>
-            <Setter Property="Height" Value="Auto"/>
-            <Setter Property="Width" Value="1"/>
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Card.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.CheckBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Flipper.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Popupbox.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Window.Resources>
     <Grid>
+        <Viewbox Stretch="Uniform">
+            <Canvas Width="1600" Height="900">
+                <materialDesign:Card
+  Background="#03a9f4"
+  Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+  Padding="0"
+  Width="525" Canvas.Top="30" Canvas.Left="35" Height="850">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition
+        Height="Auto" />
+                            <RowDefinition
+        Height="Auto" />
+                            <RowDefinition
+        Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+      Grid.Row="0"
+      Margin="16 16 16 4"
+      Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+      Text="统计结果" FontSize="42" Foreground="#DD353535" FontFamily="Bahnschrift SemiBold" FontWeight="Bold" />
+                        <Separator
+      Grid.Row="1"
+      Style="{StaticResource MaterialDesignLightSeparator}" />
+                        <ContentControl x:Name="Sticbac" Height="750" Width="500" Margin="9,78,16,-58" Grid.RowSpan="3"/>
+                    </Grid>
+                </materialDesign:Card>
+
+                <materialDesign:Card x:Name="Question"
+                    Background="{DynamicResource PrimaryHueLightBrush}"
+                    Foreground="{DynamicResource PrimaryHueLightForegroundBrush}"
+                    Width="962"
+                    Padding="8"
+                    Canvas.Top="30"
+                    Canvas.Left="614" Height="75">
+                    <TextBlock x:Name="QSX"
+    FontSize="48"
+    Text="这里是问题" FontFamily="Arial Black" FontStyle="Normal" FontWeight="Bold" />
+                </materialDesign:Card>
+                <materialDesign:Chip x:Name="AC1"
+  Content="这里是第一个回答"
+  Icon="A" Canvas.Top="158" Canvas.Left="851" Height="41" Width="354" RenderTransformOrigin="0.5,0.5" FontSize="20" FontFamily="Cascadia Code">
+                    <materialDesign:Chip.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="2" ScaleY="2"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </materialDesign:Chip.RenderTransform>
+                </materialDesign:Chip>
+                <materialDesign:Chip x:Name="AC4"
+  Content="这里是第四个回答"
+  Icon="D" Canvas.Top="455" Canvas.Left="851" Height="41" Width="354" RenderTransformOrigin="0.5,0.5" FontSize="20" FontFamily="Cascadia Code">
+                    <materialDesign:Chip.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="2" ScaleY="2"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </materialDesign:Chip.RenderTransform>
+                </materialDesign:Chip>
+                <materialDesign:Chip x:Name="AC3"
+  Content="这里是第三个回答"
+  Icon="C" Canvas.Top="359" Canvas.Left="851" Height="41" Width="354" RenderTransformOrigin="0.5,0.5" FontSize="20" FontFamily="Cascadia Code">
+                    <materialDesign:Chip.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="2" ScaleY="2"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </materialDesign:Chip.RenderTransform>
+                </materialDesign:Chip>
+                <materialDesign:Chip x:Name="AC2"
+  Content="这里是第二个回答"
+  Icon="B" Canvas.Top="257" Canvas.Left="851" Height="41" Width="354" RenderTransformOrigin="0.5,0.5" FontSize="20" FontFamily="Cascadia Code">
+                    <materialDesign:Chip.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="2" ScaleY="2"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </materialDesign:Chip.RenderTransform>
+                </materialDesign:Chip>
+            </Canvas>
+        </Viewbox>
 
     </Grid>
 </Window>
