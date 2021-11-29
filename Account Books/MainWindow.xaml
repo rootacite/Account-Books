@@ -10,6 +10,8 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ToggleButton.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Card.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.CheckBox.xaml" />
@@ -55,8 +57,8 @@
                     Canvas.Top="30"
                     Canvas.Left="614" Height="75">
                     <TextBlock x:Name="QSX"
-    FontSize="48"
-    Text="这里是问题" FontFamily="Arial Black" FontStyle="Normal" FontWeight="Bold" />
+    FontSize="28"
+    Text="这里是问题" FontFamily="Arial Black" FontStyle="Normal" FontWeight="Bold" TextWrapping="Wrap" />
                 </materialDesign:Card>
                 <materialDesign:Chip x:Name="AC1"
   Content="这里是第一个回答"
@@ -106,6 +108,40 @@
                         </TransformGroup>
                     </materialDesign:Chip.RenderTransform>
                 </materialDesign:Chip>
+                <Button
+  Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+  ToolTip="MaterialDesignFloatingActionLightButton"
+  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Canvas.Left="1522" Canvas.Top="825" Click="Button_Click_1">
+                    <materialDesign:PackIcon
+    Kind="PageNext" Height="45" Width="45"/>
+                </Button>
+                <Button
+                    Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                    ToolTip="MaterialDesignFloatingActionLightButton"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Canvas.Left="1458" Canvas.Top="825" Click="Button_Click">
+                    <materialDesign:PackIcon
+                        Kind="PagePrevious" Height="45" Width="45"/>
+                </Button>
+                <!-- and here's another -->
+
+                <ListView x:Name="PlayerList"
+  ItemsSource="{Binding Items1}" Canvas.Left="681" Canvas.Top="524" Height="363" Width="700" FontSize="24">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn
+        DisplayMemberBinding="{Binding Code}"
+        Header="序号" Width="120"/>
+                            <GridViewColumn
+        DisplayMemberBinding="{Binding Name}"
+        Header="姓名"  Width="120"/>
+                            <GridViewColumn
+        DisplayMemberBinding="{Binding Description}"
+        Header="答对题数"  Width="220"/>
+
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Button Content="刷新" Canvas.Left="1486" Canvas.Top="753" Height="59" FontSize="22" Click="Button_Click_2"/>
             </Canvas>
         </Viewbox>
 
